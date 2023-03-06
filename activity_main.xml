@@ -1,0 +1,171 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Participation and attendance -->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Participation and attendance (10%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/participationSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <EditText
+            android:id="@+id/participationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter participation and attendance grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Homework assignments -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Homework assignments (20%)"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addHomeworkButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Homework" />
+
+            <Button
+                android:id="@+id/resetHomeworkButton"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
+                android:text="Reset Homework" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/homeworkGradesTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Homework Grades: " />
+
+        <EditText
+            android:id="@+id/homeworkEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter homework grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Group Presentation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Group Presentation (10%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/presentationSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <EditText
+            android:id="@+id/presentationEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter group presentation grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Midterm Exam 1 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Midterm Exam 1 (10%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/midterm1SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+        <EditText
+            android:id="@+id/midterm1EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter midterm exam 1 grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Midterm Exam 2 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Midterm Exam 2 (20%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/midterm2SeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <EditText
+            android:id="@+id/midterm2EditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter midterm exam 2 grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Final Project -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final Project (30%)"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/finalProjectSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="100" />
+
+        <EditText
+            android:id="@+id/finalProjectEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter final project grade (0-100)"
+            android:inputType="numberDecimal" />
+
+        <!-- Calculate button -->
+        <Button
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CALCULATE" />
+
+        <!-- Final grade -->
+        <TextView
+            android:id="@+id/finalGradeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Final grade: "
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</layout>
