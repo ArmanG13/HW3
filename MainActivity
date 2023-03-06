@@ -1,0 +1,97 @@
+package com.example.myapplication
+
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.SeekBar
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var participationSeekBar: SeekBar
+    private lateinit var participationEditText: EditText
+    private lateinit var addHomeworkButton: Button
+    private lateinit var resetHomeworkButton: Button
+    private lateinit var homeworkGradesTextView: TextView
+    private lateinit var homeworkEditText: EditText
+    private lateinit var presentationSeekBar: SeekBar
+    private lateinit var presentationEditText: EditText
+    private lateinit var midterm1SeekBar: SeekBar
+    private lateinit var midterm1EditText: EditText
+    private lateinit var midterm2SeekBar: SeekBar
+    private lateinit var midterm2EditText: EditText
+    private lateinit var finalProjectSeekBar: SeekBar
+    private lateinit var finalProjectEditText: EditText
+    private lateinit var calculateButton: Button
+    private lateinit var finalGradeTextView: TextView
+
+    private var homeworkGrades = mutableListOf<Double>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        participationSeekBar = findViewById(R.id.participationSeekBar)
+        participationEditText = findViewById(R.id.participationEditText)
+        addHomeworkButton = findViewById(R.id.addHomeworkButton)
+        resetHomeworkButton = findViewById(R.id.resetHomeworkButton)
+        homeworkGradesTextView = findViewById(R.id.homeworkGradesTextView)
+        homeworkEditText = findViewById(R.id.homeworkEditText)
+        presentationSeekBar = findViewById(R.id.presentationSeekBar)
+        presentationEditText = findViewById(R.id.presentationEditText)
+        midterm1SeekBar = findViewById(R.id.midterm1SeekBar)
+        midterm1EditText = findViewById(R.id.midterm1EditText)
+        midterm2SeekBar = findViewById(R.id.midterm2SeekBar)
+        midterm2EditText = findViewById(R.id.midterm2EditText)
+        finalProjectSeekBar = findViewById(R.id.finalProjectSeekBar)
+        finalProjectEditText = findViewById(R.id.finalProjectEditText)
+        calculateButton = findViewById(R.id.calculateButton)
+        finalGradeTextView = findViewById(R.id.finalGradeTextView)
+
+        addHomeworkButton.setOnClickListener {
+            val homeworkGrade = homeworkEditText.text.toString().toDoubleOrNull()
+
+            if (homeworkGrade != null && homeworkGrade >= 0 && homeworkGrade <= 100) {
+                homeworkGrades.add(homeworkGrade)
+                homeworkGradesTextView.text =
+                    "Homework Grades: ${homeworkGrades.joinToString(", ")}"
+                homeworkEditText.text.clear()
+            } else {
+                homeworkEditText.error = "Please enter a valid homework grade (0-100)"
+            }
+        }
+
+        resetHomeworkButton.setOnClickListener {
+            homeworkGrades.clear()
+            homeworkGradesTextView.text = "Homework Grades: "
+        }
+
+        calculateButton.setOnClickListener {
+            val participationGrade = participationEditText.text.toString().toDoubleOrNull()
+            val presentationGrade = presentationEditText.text.toString().toDoubleOrNull()
+            val midterm1Grade = midterm1EditText.text.toString().toDoubleOrNull()
+            val midterm2Grade = midterm2EditText.text.toString().toDoubleOrNull()
+            val finalProjectGrade = finalProjectEditText.text.toString().toDoubleOrNull()
+
+            if (participationGrade != null && presentationGrade != null && midterm1Grade != null &&
+                midterm2Grade != null && finalProjectGrade != null
+            ) {
+
+                val homeworkGradeAverage = if (homeworkGrades.isEmpty()) {
+                    0.0
+                } else {
+                    homeworkGrades.average()
+                }
+
+                val finalGrade = participationGrade * 0.1 +
+                        homeworkGradeAverage * 0.2 +
+                        presentationGrade * 0.1 +
+                        midterm1Grade * 0.1 +
+                        midterm2Grade * 0.2 +
+                        finalProjectGrade * 0.3
+            }
+        }
+    }
+}
+
